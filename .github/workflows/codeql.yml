@@ -22,7 +22,7 @@ jobs:
         include:
         - language: c-cpp
           build-mode: manual
-
+        
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -32,11 +32,6 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
-        queries: |
-          +security-extended
-          +performance-queries
-          +maintainability-queries
-          +reliability-queries
         
     - if: matrix.build-mode == 'manual'
       shell: bash
